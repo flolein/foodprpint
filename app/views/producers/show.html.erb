@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <% if params[:from_linkto].present? %>
+    <div class=“producer-show” id="producer-show-all-posts">
+      <%= link_to "Back", producer_path(@producer) , class: "btn-gold"%>
+      <h2 class="updates">All posts</h2>
+      <%= render partial: 'shared/post-card', collection: @all_posts, as: :post %>
+    </div>
+  <% else %>
+
+    <h2 class="title"><%= @producer.company_name %></h2>
+
+    <%= render 'shared/banner-show-producer', locals: { to_delete: false} %>
+
+    <div class="padding">
+      <div class="product-season">
+        <p><%= @producer.address%></p>
+      </div>
+
+      <div>
+        <p><%= @producer.description %></p>
+      </div>
+
+      <div>
+        <ul>
+          <% if params[:search].present? && params[:search][:query].blank? == false %>
+            <li><i class="fas fa-info-circle info"></i>Distance: <%=@producer.distance_to(params[:search][:query]).to_i%>km</li>
+          <% else %>
+            <li><i class="fas fa-info-circle info"></i>Distance: <%=@producer.distance_to(current_user).to_i%>km</li>
+          <% end %>
+
+
+
+          <li><i class="fas fa-info-circle info"></i>Region: <%= @producer.region %></li>
+          <li><i class="fas fa-info-circle info"></i>Website: <%= @producer.website %></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <% unless @post.nil? %>
+      <div class=“producer-show”>
+        <h2 class="title">Latest Updates</h2>
+        <%= render partial: 'shared/post-card', object: @post, as: :post%>
+        <div class="producer-show-button">
+          <%= link_to "Show all posts", producer_path(@producer, from_linkto: true) , class: "btn-gold"%>
+        </div>
+      </div>
+    <% end %>
+
+    <div>
+      <h2 class="title">Product Overview</h2>
+    </div>
+
+    <% if @products == [] %>
+      <div>
+        <div class="alert-warning" role="alert">The producer has no product offers right now.</div>
+      </div>
+    <% else %>
+      <div class="row padding">
+        <%= render partial: 'shared/product-card-in-season', collection: @products_in_season, as: :product, locals: { to_delete: false } %>
+        <%= render partial: 'shared/product-card-not-in-season', collection: @products_not_in_season, as: :product, locals: { to_delete: false } %>
+      </div>
+    <% end %>
+
+  <% end %>
+</div>
+
+

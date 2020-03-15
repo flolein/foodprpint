@@ -1,0 +1,35 @@
+
+<div class="container-fluid-full-screen sign-in">
+  <div class="w-100 content">
+    <h1 class="text-center">Edit account</h1>
+    <!-- <p class="text-center">to be a friend of delicious local food</p> -->
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :email, autofocus: true, input_html: {class: "devise-form-field"} %>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+
+        <%= f.input :username, input_html: { class: "devise-form-field" } %>
+        <%= f.input :address, input_html: { class: "devise-form-field" } %>
+        <%= f.input :password, input_html: { class: "devise-form-field" } %>
+        <%= f.input :current_password,
+                    placeholde: "we need your current password to confirm your changes",
+                    required: true,
+                    input_html: { autocomplete: "current-password", class: "devise-form-field" } %>
+      </div>
+    <p>
+    <div class="form-actions d-flex justify-content-center">
+      <%= f.button :submit, "Update", class: "btn-gold", style: "width: 100%" %>
+    </div>
+    <% end %></p>
+    <div class="d-flex justify-content-between btntwo"  >
+      <p><a class="btn-gold"<%= link_to "Back", :back %> </a></p>
+      <p><a class="btn-gray" <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></a> </p>
+    </div>
+  </div>
+</div>
+

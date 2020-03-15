@@ -1,0 +1,33 @@
+
+<div data-producer-id="<%= producer.id %>" class="card-producer">
+  <%= render 'shared/producer-card_favourite_icon', producer: producer, to_delete: to_delete %>
+    <%= link_to producer_path(producer, search: { query: params[:search].present? ? params[:search][:query] : "" }) do %>
+      <%= image_tag producer.photo, class:"card-producer-img" %>
+    <% end %>
+    <div class="card-producer-body">
+
+<%= link_to producer_path(producer, search: { query: params[:search].present? ? params[:search][:query] : "" }) do %>
+      <% if producer.company_name.length > 10 %>
+        <h3><%= producer.company_name[0..12]%>..</h3>
+      <% else %>
+        <h3><%= producer.company_name%></h3>
+      <% end %>
+      <div class="card-producer-address">
+        <% if producer.street.length > 15 %>
+          <p><%= producer.street[0..14]%>..</p>
+        <% else %>
+          <p><%= producer.street %></p>
+        <% end %>
+        <p><%=producer.city%></p>
+        <p><%=producer.region%></p>
+      </div>
+      <div class="card-producer-distance">
+        <% if params[:search].present? && params[:search][:query].blank? == false %>
+          <p><%=producer.distance_to(params[:search][:query]).to_i%>km</p>
+        <% else %>
+          <p><%=producer.distance_to(current_user).to_i%>km</p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

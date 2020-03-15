@@ -1,0 +1,20 @@
+<div class="card-post">
+  <% if post.post_type.nil? %>
+    <div></div>qqq
+  <% else %>
+    <% if post.post_type == "update" %>
+      <%= image_tag post.photo, class:"card-post-img" %>
+    <% elsif post.post_type == "event" %>
+      <% @token = ENV['MAPBOX_API_KEY']; %>
+      <%= image_tag image_url("https://api.mapbox.com/styles/v1/vronski13/ck7eq7c322ijr1imzopetdb00/static/pin-s+627655(#{post.longitude},#{post.latitude})/#{post.longitude},#{post.latitude},10/345x160?access_token=#{@token}"), class:"card-post-img"%>
+    <% end %>
+    <div class="card-post-body">
+      <p><%= post.created_at.to_date.strftime('%dth %B %Y') %></p>
+      <h3><%= post.title %></h3>
+      <p><%= post.content %></p>
+    </div>
+      <%= link_to producer_path(post.producer_id) do %>
+        <%= cl_image_tag post.producer.photo, width: 90, height: 90, crop: :scale, class:"avatar-large card-post-avatar " %>
+      <% end %>
+  <% end %>
+</div>

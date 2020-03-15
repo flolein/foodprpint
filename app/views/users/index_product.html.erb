@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <h3 class="title">Favourite products</h3>
+  <% if @products == [] %>
+    <div>
+      <div class="alert-warning" role="alert">You have no favourite products yet.</div>
+    </div>
+  <% else %>
+
+    <div>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item active">
+          <a class="nav-link" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="true">In season</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="maps-tab" data-toggle="tab" href="#maps" role="tab" aria-controls="maps" aria-selected="false">Not in season</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+        <div class="container">
+          <div class="row">
+          <%= render partial: 'shared/product-card-in-season', collection: @products_in_season, as: :product, locals: { to_delete: true } %>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="maps" role="tabpanel" aria-labelledby="maps-tab">
+        <div class="container">
+          <div class="row">
+            <%= render partial: 'shared/product-card-not-in-season', collection: @products_not_in_season, as: :product, locals: { to_delete: true } %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>

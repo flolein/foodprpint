@@ -1,0 +1,39 @@
+
+
+.products-index-icons-lis {
+  display: flex;
+  justify-content: space-around;
+}
+
+.products-index-all-cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.products-index-icons {
+  margin-top: 10px;
+}
+
+.current_month {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 23px;
+}
+
+.mytab-div {
+  .nav-link {
+    padding: 0 !important;
+  }
+}
+
+.search-product {
+  display: flex;
+  justify-content: space-around;
+  #search-product-new {
+    width: 345px !important;
+    margin-top: -10px !important;
+    margin-bottom: 20px !important;
+    }
+  .simple_form {
+  }
+}

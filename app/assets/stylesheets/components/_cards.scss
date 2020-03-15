@@ -1,0 +1,190 @@
+
+// product-card
+.card-product {
+  position: relative;
+  border-radius: 20px;
+}
+
+.card-product-not-available {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 20px;
+  height: 230px;
+  width: 100%;
+  box-shadow: inset 0 0 0 100vw rgba(250,250,250,0.5);
+}
+
+.favourite-icon, .favourite-icon * {
+  z-index: 5;
+}
+
+.card-product-not-available-label {
+  background-color: white;
+  margin-bottom: 5px;
+  border-radius: 20px;
+  color: $gold;
+  text-align: center;
+  font-size: 15px;
+  vertical-align: center;
+  line-height: initial;
+  padding: 5px 10px;
+  width: 130px;
+}
+
+
+.card-product-img {
+  height: 160px;
+  width: 100%;
+  border-radius: 20px 20px 0px 0px;
+  background-color: $olive;
+  object-fit: cover;
+}
+
+.card-product-body {
+  height: 70px;
+  width: 100%;
+  padding: 12px 16px;
+  background-color: $silver;
+  border-radius: 0px 0px 20px 20px;
+  h3 {
+    color: $olive;
+    font-size: 16px;
+    margin-bottom: 2px;
+    text-align: left;
+  }
+  p {
+    color: $gold;
+    font-size: 14px;
+  }
+}
+
+.card-product-heart {
+  position: absolute;
+  top: 18px;
+  right: 14px;
+}
+
+
+// producer-card
+.card-producer {
+  max-width: 400px;
+  border-radius: 20px;
+  display: flex;
+  position: relative;
+  margin: 10px 0px;
+}
+
+.card-producer-img {
+  width: 125px;
+  height: 125px;
+  border-radius: 20px 0px 0px 20px;
+  object-fit: cover;
+}
+
+.card-producer-body {
+  width: 100%;
+  height: 125px;
+  padding: 12px 65px 12px 12px;
+  border-radius: 0px 20px 20px 0px;
+  background-color: $silver;
+
+
+  h3 {
+    color: $olive;
+    font-size: 16px;
+  }
+
+  p {
+    color: $gold;
+    font-size: 14px;
+  }
+}
+
+.card-producer-address {
+  p {
+  margin-bottom: 1px;
+  }
+}
+
+.card-producer-distance {
+  position: absolute;
+  bottom: 3px;
+  right: 16px;
+  p {
+    color: $olive;
+  }
+}
+
+.card-producer-heart {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+
+// post-card
+.card-post {
+  max-width: 100%;
+  border-radius: 20px;
+  position: relative;
+  margin: 20px 0px;
+
+  h3 {
+    color: $olive;
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+.card-post-img {
+  width: 100%;
+  height: 160px !important;
+  border-radius: 20px 20px 0px 0px;
+  object-fit: cover;
+}
+
+.card-post-map {
+  border-radius: 20px 20px 0px 0px;
+  object-fit: cover;
+  height: 160px;
+}
+
+
+.card-post-body {
+  max-width: 100%;
+  border-radius: 0px 0px 20px 20px;
+  background-color: $silver;
+  padding: 12px 16px;
+  h3 {
+    color: $olive;
+    font-size: 20px;
+  }
+
+  p {
+    color: $gold;
+    font-size: 18px;
+  }
+}
+
+.card-post-date {
+  color: $gold;
+}
+
+
+.card-post-avatar {
+  border: 4px solid white;
+  position: absolute;
+  top: 110px;
+  right: 10px;
+}
+
+.like-button {
+  &.-hide-heart {
+    display: none;
+    z-index: -1000;
+  }
+}

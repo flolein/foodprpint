@@ -1,0 +1,42 @@
+.row {
+  display: flex-wrap;
+  justify-content: space-around;
+}
+
+.producers-info {
+  display: flex;
+}
+
+.padding {
+  padding: 0 10px;
+}
+
+.producer-show {
+  h2 {
+    color: $olive;
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.producer-show-button {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.updates {
+  color: $olive;
+  font-size: 20px;
+  text-align: center;
+}
+
+.producer-show-all-posts {
+  display: flex;
+  justify-content: space-around;
+  .btn-gold {
+    position: relative;
+    top: 50px;
+  }
+}
+

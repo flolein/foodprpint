@@ -1,0 +1,91 @@
+<div class="col-6 mt-3 px-2">
+
+  <% if params[:search].present? && params[:search][:query].blank? == false %>
+    <% @producers = Producer.joins(:offerings).where(offerings: { product_id: product.id }).near(params[:search][:query], 200) %>
+    <% if @producers.empty? %>
+        <div id="card-<%= product.id %>" class="card-product">
+            <%= render 'shared/product-card_favourite_icon', product: product, to_delete: to_delete %>
+          <%= link_to product_path(product, search: { query: params[:search].present? ? params[:search][:query] : "" }) do %>
+          <%= image_tag product.photo, class:"card-product-img" %>
+          <div class="card-product-body">
+              <% if product.name.length > 10 %>
+                <h3><%= product.name[0..9]%>..</h3>
+              <% else %>
+                <h3><%= product.name%></h3>
+              <% end %>
+            <% if product.season_start? && product.season_end? %>
+            <p><%= product.season_start_month %> - <%= product.season_end_month %></p>
+            <% end %>
+            <div class="card-product-not-available">
+              <div class="card-product-not-available-label">Not available in your area</div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else%>
+
+        <div id="card-<%= product.id %>" class="card-product">
+          <%= render 'shared/product-card_favourite_icon', product: product, to_delete: to_delete %>
+
+      <%= link_to product_path(product, search: { query: params[:search].present? ? params[:search][:query] : "" }) do %>
+          <%= image_tag product.photo, class:"card-product-img" %>
+          <div class="card-product-body">
+              <% if product.name.length > 10 %>
+                <h3><%= product.name[0..9]%>..</h3>
+              <% else %>
+                <h3><%= product.name%></h3>
+              <% end %>
+            <% if product.season_start? && product.season_end? %>
+            <p><%= product.season_start_month %> - <%= product.season_end_month %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <% @producers = Producer.joins(:offerings).where(offerings: { product_id: product.id }).near(current_user, 200) %>
+    <% if @producers.empty? %>
+
+        <div id="card-<%= product.id %>" class="card-product">
+           <%= render 'shared/product-card_favourite_icon', product: product, to_delete: to_delete %>
+
+          <%= link_to product_path(product, search: { query: params[:search].present? ? params[:search][:query] : "" }) do %>
+          <%= image_tag product.photo, class:"card-product-img" %>
+          <div class="card-product-body">
+              <% if product.name.length > 10 %>
+                <h3><%= product.name[0..9]%>..</h3>
+              <% else %>
+                <h3><%= product.name%></h3>
+              <% end %>
+            <% if product.season_start? && product.season_end? %>
+            <p><%= product.season_start_month %> - <%= product.season_end_month %></p>
+            <% end %>
+            <div class="card-product-not-available">
+              <div class="card-product-not-available-label">Not available in your area</div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else%>
+
+        <div id="card-<%= product.id %>" class="card-product">
+          <%= render 'shared/product-card_favourite_icon', product: product, to_delete: to_delete %>
+
+          <%= link_to product_path(product, search: { query: params[:search].present? ? params[:search][:query] : "" }) do %>
+          <%= image_tag product.photo, class:"card-product-img" %>
+          <div class="card-product-body">
+              <% if product.name.length > 10 %>
+                <h3><%= product.name[0..9]%>..</h3>
+              <% else %>
+                <h3><%= product.name%></h3>
+              <% end %>
+            <% if product.season_start? && product.season_end? %>
+            <p><%= product.season_start_month %> - <%= product.season_end_month %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+

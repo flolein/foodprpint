@@ -1,0 +1,51 @@
+<div class="navbar navbar-expand-lg navbar-light navbar-lewagon sticky-top px-3">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "logo_foodprint.svg" %>
+    <% end %>
+
+
+  <%= link_to root_path do %>
+    <h1>FOOD<span>PRINT</h1></span>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+  <span><%= image_tag "hamburger.svg" %></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <button class="navbar-toggler" id="burger" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
+        <span> <%= image_tag "hamburger.svg" %> </span>
+      </button>
+    <% if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "Home", root_path, class: "nav-link", id: "home" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Newsfeed", posts_path , class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Discover products", products_path , class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Favourite products", favourite_products_path , class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Favourite producers", favourite_producers_path , class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My account", edit_user_registration_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link", id: "logout" %>
+        </li>
+
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link", id: "login" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,137 @@
+<div class="container-fluid">
+  <h2 class="title">Seasonal products</h2>
+    <% unless @new_season_product == [] %>
+      <%= render 'shared/banner-featured', collection: @new_season_product, as: :new_season_product %>
+    <% end %>
+    <div class="products-index-current-month">
+
+      <h4 class ="current_month">
+        <br>
+        This is what <strong><%= Date::MONTHNAMES[Date.today.month]%></strong> brings in
+        <strong>
+          <% if params[:search].blank? || params[:search][:query].blank? %>
+            Berlin
+          <% else %>
+            <%= params[:search][:query].split(",")[0].capitalize %>
+          <% end %>
+        </strong> on your plate
+      </h4>
+      <br>
+    </div>
+
+    <div class="product-producer">
+      <div class="mytab-div">
+        <ul class="nav nav-tabs products d-flex justify-content-between mt-3 pb-3" id="myTab" role="tablist">
+          <li class="nav-item">
+            <% if @fruit_count == 0 %>
+              <a class="category-icon nav-link -border active" id="fruits-tab" data-toggle="tab" href="#fruits" role="tab" aria-controls="fruits" aria-selected="true"> <%= image_tag "fruits.svg", class: "category" %>
+              </a>
+            <% else %>
+              <a class="category-icon nav-link -border active" id="fruits-tab" data-toggle="tab" href="#fruits" role="tab" aria-controls="fruits" aria-selected="true"> <%= image_tag "fruits.svg", class: "category" %>
+                <span class="badge badge-light category-batch"><%= @fruit_count %></span>
+              </a>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <% if @vegetable_count == 0 %>
+              <a class="category-icon nav-link -border" id="vegetables-tab" data-toggle="tab" href="#vegetables" role="tab" aria-controls="vegetables" aria-selected="false"> <%= image_tag "vegetables.svg", class: "category" %>
+              </a>
+            <% else %>
+              <a class="category-icon nav-link -border" id="vegetables-tab" data-toggle="tab" href="#vegetables" role="tab" aria-controls="vegetables" aria-selected="false"> <%= image_tag "vegetables.svg", class: "category" %>
+                <span class="badge badge-light category-batch"><%= @vegetable_count %></span>
+              </a>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <% if @cereal_count == 0 %>
+              <a class="category-icon nav-link -border" id="cereals-tab" data-toggle="tab" href="#cereals" role="tab" aria-controls="cereals" aria-selected="false"> <%= image_tag "cereals.svg", class: "category" %>
+              </a>
+            <% else %>
+              <a class="category-icon nav-link -border" id="cereals-tab" data-toggle="tab" href="#cereals" role="tab" aria-controls="cereals" aria-selected="false"> <%= image_tag "cereals.svg", class: "category" %>
+                <span class="badge badge-light category-batch"><%= @cereal_count %></span>
+              </a>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <% if @dairy_count == 0 %>
+              <a class="category-icon nav-link -border" id="dairy-tab" data-toggle="tab" href="#dairy" role="tab" aria-controls="dairy" aria-selected="false"> <%= image_tag "dairy.svg", class: "category" %>
+              </a>
+            <% else %>
+              <a class="category-icon nav-link -border" id="dairy-tab" data-toggle="tab" href="#dairy" role="tab" aria-controls="dairy" aria-selected="false"> <%= image_tag "dairy.svg", class: "category" %>
+                <span class="badge badge-light category-batch"><%= @dairy_count %></span>
+              </a>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <% if @meat_count == 0 %>
+              <a class="category-icon nav-link -border" id="meat-tab" data-toggle="tab" href="#meat" role="tab" aria-controls="meat" aria-selected="false"> <%= image_tag "meat.svg", class: "category" %>
+              </a>
+            <% else %>
+              <a class="category-icon nav-link -border" id="meat-tab" data-toggle="tab" href="#meat" role="tab" aria-controls="meat" aria-selected="false"> <%= image_tag "meat.svg", class: "category" %>
+                <span class="badge badge-light category-batch"><%= @meat_count %></span>
+              </a>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="fruits" role="tabpanel" aria-labelledby="list-tab">
+        <% if @fruits_season.empty? %>
+          <div class="alert-warning" role="alert">Sorry, currently there are no fruits in season.</div>
+        <% else %>
+          <div class="container">
+            <div class="row">
+              <%= render partial: 'shared/product-card', collection: @fruits_season, as: :product, locals: { to_delete: false } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="vegetables" role="tabpanel" aria-labelledby="maps-tab">
+        <% if @vegetables_season.empty? == 0 %>
+          <div class="alert-warning" role="alert">Sorry, currently there are no vegetables in season.</div>
+        <% else %>
+          <div class="container">
+            <div class="row">
+              <%= render partial: 'shared/product-card', collection: @vegetables_season, as: :product, locals: { to_delete: false } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="cereals" role="tabpanel" aria-labelledby="maps-tab">
+        <% if @cereals_season.empty? %>
+          <div class="alert-warning" role="alert">Sorry, currently there are no cereal products in season.</div>
+        <% else %>
+          <div class="container">
+            <div class="row">
+              <%= render partial: 'shared/product-card', collection: @cereals_season, as: :product, locals: { to_delete: false } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="dairy" role="tabpanel" aria-labelledby="maps-tab">
+        <% if @dairy_season.empty? %>
+          <div class="alert-warning" role="alert">Sorry, currently there are no dairy products in season.</div>
+        <% else %>
+          <div class="container">
+            <div class="row">
+              <%= render partial: 'shared/product-card', collection: @dairy_season, as: :product, locals: { to_delete: false } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="meat" role="tabpanel" aria-labelledby="maps-tab">
+        <% if @meat_season.empty? %>
+          <div class="alert-warning" role="alert">Sorry, currently there are no meat products in season.</div>
+        <% else %>
+          <div class="container">
+            <div class="row">
+              <%= render partial: 'shared/product-card', collection: @meat_season, as: :product, locals: { to_delete: false } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

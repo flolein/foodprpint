@@ -1,0 +1,19 @@
+.container-fluid {
+  background-color: white;
+  padding-bottom: 20px;
+}
+
+ .container-fluid-full-screen {
+  background-color: white;
+  padding-bottom: 20px;
+  height: 80vh;
+  h1 {font-size: 25px;
+  line-height: 28px;
+  color:  $olive;
+}
+  p {font-size: 18px;
+  line-height: 28px;
+  color:  $olive;
+}
+}
+

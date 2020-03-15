@@ -1,0 +1,45 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+@import "config/layout";
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+@import "pages/product_index";
+@import "pages/posts_index";
+@import "pages/home";
+@import "pages/users_product_index";
+@import "pages/devise_registrations_edit";
+
+
+a {
+  text-decoration: none;
+}
+
+
+a:hover {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  color: $olive;
+  font-weight: bold;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.title {
+  text-align: center;
+  font-size: 23px;
+  padding: 20px;
+  background-color: white;
+}
+
