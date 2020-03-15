@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <%= render 'shared/banner-home' %>
+  <div class="workflow-banner">
+    <%= image_tag "workflow_home.svg", alt: "Chart of how the service works" %>
+  </div>
+  <div class="workflow-search">
+  <%= simple_form_for :search, url: products_path, method: :get do |f| %>
+    <div class="search-form-control form-group workflow-search-form">
+      <input class="form-control string required homeform" placeholder="Your city" type="text" name="search[query]" id="search_query" />
+      <button name="button" type="submit" class="btn btn-gold">
+       GO!
+      </button>
+    </div>
+  <% end %>
+</div>
+</div>

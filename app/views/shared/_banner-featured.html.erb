@@ -1,0 +1,9 @@
+<div class="banner">
+  <div class="banner-featured">
+    <h1><%= @new_season_product.name.capitalize %> season is coming soon! </h1>
+    <%= image_tag @new_season_product.photo , class:"banner-featured-img" %>
+    <div class="banner-featured-button">
+      <%= link_to 'Read more', product_path(@new_season_product), class: "btn btn-gold"%>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="product-show container-fluid">
+  <h2 class="title"><%= @product.name %></h2>
+  <%= render 'shared/banner-show-product' %>
+
+  <div class="padding">
+    <div class="product-season">
+      <p>Season: <%= @product.season_start_month %> - <%= @product.season_end_month %></p>
+    </div>
+
+    <div class="product-content">
+      <p><%= @product.content %></p>
+    </div>
+
+    <div>
+      <ul>
+        <li><i class="fas fa-seedling info"></i><%= @product.fact1.capitalize %></li>
+        <li><i class="fas fa-seedling info"></i><%= @product.fact2.capitalize %></li>
+        <li><i class="fas fa-seedling info"></i><%= @product.fact3.capitalize %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <h2 class="title">Local Producers</h2>
+    <% if @producers == [] %>
+      <div>
+        <div class="alert-warning" role="alert">There are no producers for this product close to your location.</div>
+      </div>
+    <% else %>
+      <div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item active">
+            <a class="nav-link" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="true">List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="maps-tab" data-toggle="tab" href="#maps" role="tab" aria-controls="maps" aria-selected="false">Map</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade " id="list" role="tabpanel" aria-labelledby="list-tab">
+          <%= render partial: 'shared/producer-card', collection: @producers, as: :producer, locals: { to_delete: false }%>
+        </div>
+        <div class="tab-pane fade show active" id="maps" role="tabpanel" aria-labelledby="maps-tab">
+          <div
+            id="map"
+            style="
+            height: 400px; overflow: hidden"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          ></div>
+        </div>
+      </div>
+    <% end %>
+
+
+</div>
+</div>
+
+

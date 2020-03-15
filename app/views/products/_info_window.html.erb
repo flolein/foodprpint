@@ -1,0 +1,12 @@
+<div>
+  <% if producer.class == Producer %>
+    <h4>
+      <%= link_to producer.company_name, producer_path(producer, search: { query: params[:search].present? ? params[:search][:query] : "" })%>
+    </h4>
+    <%= link_to producer_path(producer, search: { query: params[:search].present? ? params[:search][:query] : "" }) do %>
+      <%= image_tag producer.photo, class:"info-window-img" %>
+    <% end %>
+  <% else %>
+    <h4>Your location</h4>
+  <% end %>
+</div>

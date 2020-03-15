@@ -1,0 +1,10 @@
+function likeAction() {
+  const card = document.querySelector(".like-button[data-product-id='<%= @product.id %>']");
+  const targetId = <%= @product.id %>;
+  const targetUpProduct = document.getElementById(`product-up-${targetId}`);
+  const targetDownProduct = document.getElementById(`product-down-${targetId}`);
+  targetUpProduct.classList.toggle("-hide-heart")
+  targetDownProduct.classList.toggle("-hide-heart")
+}
+
+likeAction();

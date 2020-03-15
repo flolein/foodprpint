@@ -1,0 +1,98 @@
+h1, h3, h2, h4 {
+  color: $olive;
+}
+
+#header {
+  padding-top: 20px;
+  h4 {
+    font-size: 20px;
+  }
+  h1 {
+    font-size: 40px;
+  }
+}
+
+#updates {
+  text-align: center;
+}
+
+.newsfeed-menu {
+  display: flex;
+  width: 100%;
+}
+
+.newsfeed-menu-left {
+  width: 70%;
+  margin-right: 8px;
+}
+
+.newsfeed-menu-right {
+  border-radius: 10px;
+  background-image: image-url('map_producers.svg');
+  background-size: cover;
+  color: $olive;
+  padding-top: 30px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+.newsfeed-menu-products {
+  height: 114px;
+  background-image: image-url('apple.svg');
+  box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.1);
+  background-size: cover;
+  border-radius: 20px;
+  position: relative;
+
+  #products_search {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  }
+  p {
+    color: white;
+    padding-left: 15px;
+    padding-right: 80px;
+    position: absolute;
+    top: 30px;
+  }
+}
+
+.newsfeed-menu-options {
+  display: flex;
+  justify-content: space-between;
+  div {
+  background-color: #F2F2E7;
+  height: 108px;
+  border-radius: 20px;
+  color: $olive;
+  margin-top: 8px;
+  }
+}
+
+.account {
+  max-width: 130px;
+  margin-right: 8px;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+
+.favourite-products {
+  max-width: 130px;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+
+#producer_icon {
+  margin-top: 10px;
+}
+
+#updates, #posts, #header {
+  margin-bottom: 20px;
+}

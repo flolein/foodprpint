@@ -1,0 +1,75 @@
+// heart-icons to mark favourite products or producers
+
+.heart-full {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $gold;
+  font-size: 22px;
+}
+
+
+.heart-empty {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $gold;
+  font-size: 22px;
+}
+
+.info {
+  width: 20px;
+  height: 20px;
+  color: $olive;
+  margin-right: 10px;
+}
+
+.category {
+  width: 40px;
+  height: 40px;
+  color: $gold;
+}
+
+.category-icon {
+  width: 50px;
+  height: 50px;
+  background-color: $silver;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  border-radius: 20% !important;
+}
+
+.category-batch {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: $gold;
+  color: white;
+  height: 20px;
+  width: 20px;
+  font-size: 15px;
+  text-align: center;
+  vertical-align: center;
+  border-radius: 20%;
+}
+
+.badge {
+  padding-top: 3px;
+}
+
+.nav-tabs .nav-link.-border.active, .nav-tabs .nav-item.show .nav-link {
+  border: 2px solid $gold !important;
+  border-radius: 10px;
+}
+

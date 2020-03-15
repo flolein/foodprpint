@@ -1,0 +1,47 @@
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 20px !important;
+  padding: 10px !important;
+  h4 {
+    color: $olive;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  a {
+    text-decoration: none;
+    color: $olive;
+  }
+
+  img {
+    height: 150px;
+    width: auto;
+    background-color: $olive;
+    object-fit: cover;
+  }
+}
+
+.mapboxgl-popup-close-button {
+  color: $olive !important;
+  font-size: 14px;
+  right: 2px !important;
+  top: 2px !important;
+}
+
+
+
+.post-index {
+  .mapboxgl-canvas {
+    min-height: 160px !important;
+  }
+}
+
+.product-show {
+  .mapboxgl-canvas {
+    min-height: 400px !important;
+  }
+}

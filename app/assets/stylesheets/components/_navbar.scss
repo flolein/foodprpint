@@ -1,0 +1,115 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+  height: 60px;
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    font-weight: bold;
+    font-family: $body-font;
+    color: $olive;
+    span {
+      font-weight: 100;
+    }
+  }
+}
+
+.btn-outline-success {
+  border-style: none;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 32px;
+  margin-bottom: 3px;
+}
+
+.navbar-brand {
+  margin-right: 0;
+}
+
+.navbar-toggler {
+  border: none;
+  color: $gold !important;
+  width: 30px;
+  margin-right: 10px;
+  margin-bottom: 2px;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.navbar-toggler-icon {
+  border: none;
+  color: $gold !important;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+.search-navbar {
+  margin-top: 10px !important;
+}
+
+@media (max-width: 992px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 0px;
+        left: 100%;
+        padding-left: 15px;
+        padding-right: 100px;
+        padding-bottom: 15px;
+        width: 100%;
+        transition: all 0.4s ease;
+        display: block;
+        background-color: #627655;
+        height: 100vh;
+        .nav-link {
+          color: white !important;
+          font-weight: lighter;
+          font-family: "Merriweather";
+          font-size: 20px;
+          line-height: 25px;
+          text-align: right;
+        }
+        #home {
+          font-weight: bold;
+          margin-top: 50px;
+          margin-bottom: 20px;
+        }
+
+        #logout {
+          font-weight: bold;
+          margin-top: 50px;
+        }
+        #login {
+          margin-top: 50px;
+        }
+        #burger {
+          position: relative;
+          top: 10px;
+          left: 260px;
+          color: $gold !important;
+        }
+    }
+
+    .navbar-collapse.collapsing {
+        height: auto !important;
+        margin-left: 50%;
+        left: 50%;
+        transition: all 0.2s ease;
+    }
+    .navbar-collapse.show {
+        left: 50px;
+    }
+}

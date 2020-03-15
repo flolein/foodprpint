@@ -1,0 +1,42 @@
+<div class="post-index container-fluid">
+  <div id="header">
+    <h1>Hello <%= current_user.username %> !</h1>
+    <h4>How are you today?</h4>
+  </div>
+  <div class="newsfeed-menu">
+    <div class="newsfeed-menu-left">
+      <div class="newsfeed-menu-products">
+        <%= link_to products_path do %>
+          <p>Discover new products</p>
+        <% end %>
+        <%= image_tag "products_search.svg", id: "products_search", alt: "Search Icon for products" %>
+      </div>
+      <div class="newsfeed-menu-options">
+        <%= link_to edit_user_registration_path do %>
+          <div class="account">Edit your account</div>
+        <% end %>
+        <%= link_to favourite_products_path do %>
+          <div class="favourite-products">Favourite products</div>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to favourite_producers_path do %>
+      <div class="newsfeed-menu-right">
+        <p>Favourite producers</p>
+        <%= image_tag "producer_marker.svg", id: "producer_marker", alt: "Marker of a producer" %>
+        <%= image_tag "producer_icon.svg", id: "producer_icon", alt: "Icon of a producer" %>
+      </div>
+    <% end %>
+  </div>
+<br>
+  <h2 class="title">Updates</h2>
+    <% if @posts == [] %>
+      <div>
+        <div class="alert-warning" role="alert">You have no favourite producers yet.</div>
+      </div>
+    <% else %>
+      <div>
+        <%= render partial: 'shared/post-card', collection: @posts, as: :post %>
+      </div>
+    <% end %>
+  </div>

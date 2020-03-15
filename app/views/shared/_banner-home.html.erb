@@ -1,0 +1,12 @@
+<div class="banner-home">
+  <h1>Reduce your footprint easily</h1>
+  <h2>with delicious local food</h2>
+  <%= simple_form_for :search, url: products_path, method: :get do |f| %>
+    <div class="search-form-control form-group">
+      <input class="form-control string required" placeholder="Your city" type="text" name="search[query]" id="search_query" />
+      <button name="button" type="submit" class="btn btn-gold">
+       GO!
+      </button>
+    </div>
+  <% end %>
+</div>

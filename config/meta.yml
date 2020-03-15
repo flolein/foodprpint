@@ -1,0 +1,5 @@
+meta_product_name: "FoodPrint"
+meta_title: "FoodPrint - Reduce your footprint easily"
+meta_description: "Reduce your footprint easily with deliciours local and seasonal food."
+meta_image: "foodprint_meta.jpg" # should exist in `app/assets/images/`
+twitter_account: "@foodprint"   # required for Twitter Cards

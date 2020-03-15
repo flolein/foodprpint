@@ -1,0 +1,45 @@
+
+<div class="product-show container-fluid">
+  <div class="product-producer">
+    <h2 class="title">Favorite Producers</h2>
+    <% if @producers == [] %>
+      <div>
+        <div class="alert-warning" role="alert">You have no favourite producers yet.</div>
+      </div>
+    <% else %>
+      <div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item active">
+            <a class="nav-link" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="true">List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="maps-tab" data-toggle="tab" href="#maps" role="tab" aria-controls="maps" aria-selected="false">Map</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+          <%= render partial: 'shared/producer-card', collection: @producers, as: :producer, locals: { to_delete: true } %>
+          <%= link_to "Check the news of your favourite producers", posts_path, class: "btn btn-gold w-100"%>
+        </div>
+        <div class="tab-pane fade" id="maps" role="tabpanel" aria-labelledby="maps-tab">
+          <div
+            id="map"
+            style="
+            height: 400px;
+            overflow: hidden"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          ></div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+
+
+
+
